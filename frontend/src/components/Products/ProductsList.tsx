@@ -1,13 +1,13 @@
 'use client'
-import { useAddToCart } from '@/api/cart/useCart'
 import { useProducts } from '@/api/products/useProducts'
 import { Loader2 } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
+import AddToCartButton from '../UI/NavBar/AddToCartButton'
 
 const ProductsList = () => {
     const { data: products, isLoading, isError } = useProducts()
-    const { mutate: addToCart, isPending } = useAddToCart()
 
     if (isLoading) {
         return (
@@ -28,7 +28,7 @@ const ProductsList = () => {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             {products.map((product) => (
-                <div
+                <Link href={`/${product.id}/`}
                     key={product.id}
                     className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col"
                 >
@@ -51,15 +51,9 @@ const ProductsList = () => {
 
                     <div className="flex justify-between items-center mt-4 pt-4 border-t">
                         <div className="text-2xl font-medium">{product.price} ₽</div>
-                        <button
-                            onClick={() => addToCart(product)}
-                            disabled={isPending}
-                            className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            {isPending ? 'Добавление...' : 'В корзину'}
-                        </button>
+                        <AddToCartButton product={product} />
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     )
