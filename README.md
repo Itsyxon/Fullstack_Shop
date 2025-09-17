@@ -18,7 +18,7 @@ npm run dev
 
 ```
 npm install
-npm start:dev
+npm start (либо npm start:dev)
 ```
 
 Frontend будет доступен по адресу:
