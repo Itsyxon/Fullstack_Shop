@@ -21,8 +21,8 @@ const CartPopoverContent = () => {
 
     const totalAmount = data?.reduce((sum, item) => sum + item.price, 0)
     return (
-        <div className='flex flex-col h-full justify-between'>
-            <div>
+        <div className='flex flex-col h-full justify-between overflow-y-hidden'>
+            <div className='overflow-y-auto'>
                 {data?.map((item) => (
                     <CartItem key={item.id} item={item} />
                 ))}
@@ -30,8 +30,8 @@ const CartPopoverContent = () => {
             <div className='p-5 bg-white sticky bottom-0 flex justify-between items-center border-t'>
                 <p>Итого: {totalAmount} ₽</p>
                 <div className='flex gap-3 [&>*]:cursor-pointer'>
-                    <button className="bg-green-700 text-white px-4 py-2 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm">Оформить</button>
                     <button onClick={() => clearCart()} className="bg-red-700 text-white px-4 py-2 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm">Очистить</button>
+                    <button className="bg-green-700 text-white px-4 py-2 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm">Оформить</button>
                 </div>
             </div>
         </div>

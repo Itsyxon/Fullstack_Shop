@@ -28,7 +28,20 @@ export class CartService {
   }
 
   deleteCartItem(id: number) {
-    this.cartProducts.filter((product) => product.id != id)
+    const product = this.cartProducts.find((el) => el.id === id)
+
+    if (!product) {
+      return this.cartProducts
+    }
+
+    const currentCount = product.totalInCart || 1
+
+    if (currentCount > 1) {
+      product.totalInCart = currentCount - 1
+    } else {
+      this.cartProducts = this.cartProducts.filter((item) => item.id !== id)
+    }
+
     return this.cartProducts
   }
 

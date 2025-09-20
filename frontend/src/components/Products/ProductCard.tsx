@@ -19,7 +19,7 @@ const ProductCard = () => {
     if (isLoading) {
         return (
             <div className="flex justify-center items-center h-64">
-                <Loader2 className="w-20 h-20 text-foreground animate-spin" />
+                <Loader2 className="w-20 h-20 text-red-700 animate-spin" />
             </div>
         )
     }

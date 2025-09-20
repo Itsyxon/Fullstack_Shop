@@ -39,3 +39,17 @@ export const useClearCart = () => {
     },
   })
 }
+
+export const useRemoveFromCart = () => {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: async (id: string) => {
+      const { data } = await api.delete<Product[]>(`/cart/${id}`)
+      return data
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['cart'] })
+    },
+  })
+}

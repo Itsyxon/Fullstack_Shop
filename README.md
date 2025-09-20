@@ -1,6 +1,7 @@
 # Fullstack-приложение на React с Nextjs и Nestjs.
 
-### Приложение интернет-магазина с frontend и backend-частью (в разработке). 
+### Приложение интернет-магазина с frontend и backend-частью (в разработке).
+
 Использовал: React, Nextjs, Tailwind, TanStack (React Query), Axios, Headless UI, Nestjs.
 
 ### Планирую добавить: БД, Dockerfile, ещё запросы, ещё frontend.
@@ -32,3 +33,7 @@ Swagger будет доступен по адресу:
 ```
 localhost:5050/api#/
 ```
+
+### Превью сайта
+
+![plot](./frontend/public/Preview.png)

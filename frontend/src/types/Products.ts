@@ -5,5 +5,5 @@ export type Product = {
   description?: string
   category?: string
   url?: string
-  totalInCart?: number
+  totalInCart: number
 }
