@@ -7,12 +7,12 @@ const NavBar = () => {
     return (
         <nav className='bg-white'>
             <Container>
-                <div className='flex justify-between items-center h-16 text-lg font-liber'>
-                    <ul className='flex gap-12 text-[var(--secondary)]'>
+                <div className='flex justify-between items-center h-16 text-lg'>
+                    <ul className='flex gap-12 text-[var(--secondary)] [&>li]:hover:text-red-700 [&>*]:transition'>
                         <li><Link href='/'>Главная</Link></li>
                         <li><Link href='/sales'>Акции</Link></li>
                     </ul>
-                    <ul className='flex gap-12 text-[var(--secondary)] font-liber'>
+                    <ul className='flex gap-12 text-[var(--secondary)]'>
                         <li><CartDisplay /></li>
                     </ul>
                 </div>

@@ -23,23 +23,22 @@ const ProductCard = () => {
             </div>
         )
     }
-    console.log(product)
     return (
         <div className='mt-3'>
             <button className='flex items-center text-red-700 font-medium cursor-pointer' onClick={() => router.back()}><ChevronLeft /> Вернуться назад</button>
-            <div className='flex gap-4 mt-12'>
+            <div className='flex gap-4 mt-8'>
                 {product.url && <Image src={product.url} alt={product.name}
                     className="object-contain w-1/2"
                     width={500}
                     height={500}
                 />}
-                <div className='flex flex-col justify-around p-4 bg-white min-w-[calc(100vw-1800px)]'>
+                <div className='flex flex-col justify-center p-4 bg-white min-w-[calc(100vw-1800px)]'>
                     <div>
-                        <h1 className='text-2xl font-semibold'>{product.name}</h1>
+                        <h1 className='text-4xl font-semibold mb-5'>{product.name}</h1>
                         <p>{product.description}</p>
-                        <p>Тут какое-то подробное описание и то, чего нет в карточке товара</p>
+                        <p className='text-gray-600'>Тут какое-то подробное описание и то, чего нет в карточке товара</p>
                     </div>
-                    <div>
+                    <div className='mt-6'>
                         <AddToCartButton product={product} />
                     </div>
                 </div>

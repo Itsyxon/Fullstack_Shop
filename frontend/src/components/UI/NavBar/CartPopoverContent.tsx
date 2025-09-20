@@ -1,7 +1,7 @@
 import { useCart, useClearCart } from '@/api/cart/useCart';
 import { Loader2 } from 'lucide-react';
-import Image from 'next/image';
 import React from 'react';
+import CartItem from './CartItem';
 
 const CartPopoverContent = () => {
     const { data, isLoading } = useCart()
@@ -20,27 +20,14 @@ const CartPopoverContent = () => {
     }
 
     const totalAmount = data?.reduce((sum, item) => sum + item.price, 0)
-
     return (
-        <div>
-            {data?.map((item) => (
-                <div key={item.id} className='flex items-center justify-between pr-5'>
-                    {item.url && (
-                        <div className="relative h-20 w-20">
-                            <Image
-                                src={item.url}
-                                alt={item.name}
-                                fill
-                                className="object-contain"
-                                sizes="(max-width: 200px) 100vw, (max-width: 100px) 50vw, 33vw"
-                            />
-                        </div>
-                    )}
-                    <div className='text-sm truncate max-w-[200px]'>{item.name}</div>
-                    <div className='font-semibold'>{item.price} ₽</div>
-                </div>
-            ))}
-            <div className='p-5 bg-white sticky bottom-0 flex justify-between items-center'>
+        <div className='flex flex-col h-full justify-between'>
+            <div>
+                {data?.map((item) => (
+                    <CartItem key={item.id} item={item} />
+                ))}
+            </div>
+            <div className='p-5 bg-white sticky bottom-0 flex justify-between items-center border-t'>
                 <p>Итого: {totalAmount} ₽</p>
                 <div className='flex gap-3 [&>*]:cursor-pointer'>
                     <button className="bg-green-700 text-white px-4 py-2 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm">Оформить</button>

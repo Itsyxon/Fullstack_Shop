@@ -10,8 +10,21 @@ export class CartService {
   }
 
   addToCart(product: Product) {
-    this.cartProducts.push(product)
-    return this.cartProducts
+    const existingIndex = this.cartProducts.findIndex(
+      (el) => el.id === product.id
+    )
+
+    if (existingIndex !== -1) {
+      this.cartProducts[existingIndex].totalInCart =
+        (this.cartProducts[existingIndex].totalInCart || 0) + 1
+      this.cartProducts[existingIndex].price *=
+        this.cartProducts[existingIndex].totalInCart
+    } else {
+      this.cartProducts.push({
+        ...product,
+        totalInCart: 1,
+      })
+    }
   }
 
   deleteCartItem(id: number) {

@@ -5,4 +5,5 @@ export type Product = {
   price: number
   category?: string
   url?: string
+  totalInCart?: number
 }
