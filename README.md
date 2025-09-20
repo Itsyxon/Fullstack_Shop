@@ -37,3 +37,7 @@ localhost:5050/api#/
 ### Превью сайта
 
 ![plot](./frontend/public/Preview.png)
+
+### Превью Swagger'а (запросы будут добавляться)
+
+![plot](./frontend/public/swagger.png)

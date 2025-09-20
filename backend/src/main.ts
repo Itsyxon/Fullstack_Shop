@@ -13,8 +13,8 @@ async function bootstrap() {
   })
 
   const config = new DocumentBuilder()
-    .setTitle('Мой проект')
-    .setDescription('API моего проекта')
+    .setTitle('E-Shop')
+    .setDescription('Рабочее API магазина E-Shop')
     .build()
   const document = SwaggerModule.createDocument(app, config)
   SwaggerModule.setup('api', app, document)

@@ -5,8 +5,8 @@ import NavBar from "@/components/UI/NavBar/NavBar";
 import Container from "@/components/Container";
 
 export const metadata: Metadata = {
-  title: "",
-  description: "Магазин одежды",
+  title: "E-Shop",
+  description: "Магазин электронных товаров и гаджетов",
 };
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body
         className={`antialiased`}
       >
